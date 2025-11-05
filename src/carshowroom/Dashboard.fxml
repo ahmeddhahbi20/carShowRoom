@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.lang.String?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="carshowroom.DashboardController">
+   <children>
+      <AnchorPane fx:id="main_form" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <BorderPane prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <AnchorPane prefHeight="45.0" prefWidth="200.0" styleClass="semi-top-form" stylesheets="@dashboard.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="-13.0" layoutY="-86.0" prefHeight="35.0" prefWidth="1100.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <FontAwesomeIconView glyphName="CAR" layoutX="14.0" layoutY="21.0" size="1.5em" />
+                              <Label layoutX="47.0" layoutY="6.0" prefHeight="18.0" prefWidth="185.0" text="Car Rental Mangement System">
+                                 <font>
+                                    <Font name="Arial Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="close" layoutX="1058.0" layoutY="3.0" mnemonicParsing="false" onAction="#close" prefHeight="24.0" prefWidth="18.0" styleClass="close" stylesheets="@dashboard.css" AnchorPane.rightAnchor="-2.7999999999999545" AnchorPane.topAnchor="3.0">
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="CLOSE" size="1.2em" wrappingWidth="26.514235496520996" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="minimize" layoutX="1020.0" layoutY="2.0" mnemonicParsing="false" onAction="#minimize" styleClass="minimize" stylesheets="@dashboard.css">
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="MINUS" size="1.2em" text="" wrappingWidth="21.71430891752243" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </top>
+               <left>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="-14.0" layoutY="14.0" prefHeight="555.0" prefWidth="210.0" stylesheets="@dashboard.css" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <FontAwesomeIconView fill="WHITE" glyphName="USER" layoutX="58.0" layoutY="116.0" size="7em" />
+                              <Label layoutX="59.0" layoutY="150.0" prefHeight="22.0" prefWidth="70.0" text="Welcome" textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="home_usernamelabel" alignment="CENTER" layoutX="-5.0" layoutY="180.0" prefHeight="22.0" prefWidth="185.0" text="Ahmed" textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="100.0" layoutX="108.0" layoutY="231.0" startX="-100.0" stroke="WHITE" />
+                              <Button fx:id="home_homebtn" layoutX="18.0" layoutY="259.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" stylesheets="@dashboard.css" text="Home">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="HOME" size="1.5em" />
+                                 </graphic>
+                                 <styleClass>
+                                    <String fx:value="nav-btn" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </Button>
+                              <Button fx:id="logoutbtn" layoutX="18.0" layoutY="515.0" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="62.0" stylesheets="@dashboard.css">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="SIGN_OUT" size="2em" />
+                                 </graphic>
+                                 <styleClass>
+                                    <String fx:value="logout-btn" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </Button>
+                              <Label layoutX="94.0" layoutY="523.0" prefHeight="18.0" prefWidth="80.0" text="Sign Out " textFill="#fcfafa" />
+                              <Button fx:id="home_avcbtn" layoutX="15.0" layoutY="294.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" stylesheets="@dashboard.css" text="Available Cars">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="CHECK" size="1.5em" />
+                                 </graphic>
+                                 <styleClass>
+                                    <String fx:value="nav-btn" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </Button>
+                              <Button fx:id="home_rentbtn" layoutX="15.0" layoutY="329.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" stylesheets="@dashboard.css" text="Rent Car">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="CAR" size="1.5em" />
+                                 </graphic>
+                                 <styleClass>
+                                    <String fx:value="nav-btn" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </Button>
+                           </children>
+                           <styleClass>
+                              <String fx:value="nav-form" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="home_form" layoutX="52.0" layoutY="35.0" prefHeight="554.4" prefWidth="890.4" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="4.0" layoutY="7.0" prefHeight="144.0" prefWidth="874.0" stylesheets="@dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <AnchorPane fx:id="home_availablecars" layoutX="14.0" layoutY="3.0" prefHeight="134.0" prefWidth="262.0" styleClass="nav-form" stylesheets="@dashboard.css">
+                                       <children>
+                                          <FontAwesomeIconView fill="#fffafa" glyphName="CAR" layoutX="14.0" layoutY="78.0" size="4em" />
+                                          <Label layoutX="69.0" layoutY="97.0" prefHeight="18.0" prefWidth="130.0" text="Available Cars" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial Black" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="avc_count" alignment="CENTER_RIGHT" layoutX="125.0" layoutY="14.0" prefHeight="18.0" prefWidth="130.0" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane fx:id="home_totalincome" layoutX="306.0" layoutY="3.0" prefHeight="134.0" prefWidth="262.0" styleClass="nav-form" stylesheets="@dashboard.css">
+                                       <children>
+                                          <FontAwesomeIconView fill="#fffafa" glyphName="MONEY" layoutX="14.0" layoutY="78.0" size="4em" />
+                                          <Label layoutX="69.0" layoutY="97.0" prefHeight="18.0" prefWidth="130.0" text="Total Income" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial Black" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="home_total" alignment="CENTER_RIGHT" layoutX="125.0" layoutY="14.0" prefHeight="18.0" prefWidth="130.0" text="\$0.0" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane fx:id="home_totalcustomers" layoutX="603.0" layoutY="3.0" prefHeight="134.0" prefWidth="262.0" styleClass="nav-form" stylesheets="@dashboard.css">
+                                       <children>
+                                          <FontAwesomeIconView fill="#fffafa" glyphName="USERS" layoutX="14.0" layoutY="78.0" size="4em" />
+                                          <Label layoutX="69.0" layoutY="97.0" prefHeight="18.0" prefWidth="130.0" text="Total Customers" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial Black" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="home_tot_customers" alignment="CENTER_RIGHT" layoutX="117.0" layoutY="14.0" prefHeight="18.0" prefWidth="130.0" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="6.0" layoutY="164.0" prefHeight="380.0" prefWidth="878.0" stylesheets="@dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <AnchorPane layoutX="3.0" layoutY="4.0" prefHeight="370.0" prefWidth="494.0" stylesheets="@dashboard.css">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <BarChart fx:id="home_incomechart" layoutX="14.0" layoutY="14.0" prefHeight="370.4" prefWidth="494.4" title="Income Data Chart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </BarChart>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="506.0" layoutY="3.0" prefHeight="378.0" prefWidth="366.0" stylesheets="@dashboard.css">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <LineChart fx:id="home_customedata" layoutX="-122.0" layoutY="-96.0" prefHeight="378.4" prefWidth="378.4" title="Customers Data Chart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </LineChart>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="avc_form" layoutX="245.0" layoutY="77.0" prefHeight="554.4" prefWidth="890.4" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="8.0" layoutY="5.0" prefHeight="200.0" prefWidth="876.0" stylesheets="@dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="24.0" layoutY="28.0" text="Car ID :" />
+                                    <TextField fx:id="availablecar_carid" layoutX="71.0" layoutY="24.0" prefHeight="26.0" prefWidth="94.0" styleClass="textfield" stylesheets="@dashboard.css" />
+                                    <Label layoutX="24.0" layoutY="78.0" text="Brand :" />
+                                    <TextField fx:id="avc_Brand" layoutX="71.0" layoutY="74.0" prefHeight="26.0" prefWidth="183.0" styleClass="textfield" stylesheets="@dashboard.css" />
+                                    <Label layoutX="25.0" layoutY="120.0" text="Model:" />
+                                    <TextField fx:id="avc_Model" layoutX="70.0" layoutY="116.0" prefHeight="26.0" prefWidth="185.0" styleClass="textfield" stylesheets="@dashboard.css" />
+                                    <ComboBox fx:id="avc_Status" layoutX="71.0" layoutY="159.0" onAction="#availableCarStatusList" prefWidth="189.0" promptText="Choose..." styleClass="textfield" stylesheets="@dashboard.css" />
+                                    <Label layoutX="21.0" layoutY="163.0" prefHeight="18.0" prefWidth="41.0" text="Status:" />
+                                    <AnchorPane layoutX="438.0" layoutY="13.0" prefHeight="153.0" prefWidth="116.0" stylesheets="@dashboard.css">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <ImageView fx:id="avc_imageview" fitHeight="153.0" fitWidth="137.0" layoutX="2.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Button fx:id="avc_imporbtn" layoutX="1.0" layoutY="150.0" mnemonicParsing="false" onAction="#availableCarImportImage" prefHeight="26.0" prefWidth="138.0" styleClass="update-btn" stylesheets="@dashboard.css" text="Import" />
+                                       </children>
+                                    </AnchorPane>
+                                    <Button fx:id="avc_insertbtn" layoutX="749.0" layoutY="76.0" mnemonicParsing="false" onAction="#availableCarAdd" prefHeight="50.0" prefWidth="108.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Insert" />
+                                    <Button fx:id="avc_updatebtn" layoutX="632.0" layoutY="76.0" mnemonicParsing="false" onAction="#availableCarUpdate" prefHeight="50.0" prefWidth="108.0" styleClass="update-btn" stylesheets="@dashboard.css" text="Update" />
+                                    <Button fx:id="avc_deletebtn" layoutX="749.0" layoutY="138.0" mnemonicParsing="false" onAction="#availableCarDelete" prefHeight="50.0" prefWidth="108.0" styleClass="delete-btn" stylesheets="@dashboard.css" text="Delete" />
+                                    <Button fx:id="avc_clearbtn" layoutX="632.0" layoutY="137.0" mnemonicParsing="false" onAction="#availableCarClear" prefHeight="50.0" prefWidth="108.0" styleClass="clear-btn" stylesheets="@dashboard.css" text="Clear" />
+                                    <Label layoutX="256.0" layoutY="27.0" prefHeight="18.0" prefWidth="37.0" text="Price" />
+                                    <TextField fx:id="avc_price" layoutX="307.0" layoutY="22.0" prefHeight="26.0" prefWidth="94.0" styleClass="textfield" stylesheets="@dashboard.css" text="\$0.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="9.0" layoutY="218.0" prefHeight="329.0" prefWidth="876.0" stylesheets="@dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TableView fx:id="avc_tableview" layoutX="22.0" layoutY="58.0" onMouseClicked="#availableCarSelect" prefHeight="261.0" prefWidth="850.0" stylesheets="@dashboard.css">
+                                      <columns>
+                                        <TableColumn fx:id="avc_col_carid" prefWidth="136.79996490478516" text="Car ID" />
+                                        <TableColumn fx:id="avc_col_brand" prefWidth="221.5999755859375" text="Brand" />
+                                          <TableColumn fx:id="avc_col_model" prefWidth="235.20004272460938" text="Model" />
+                                          <TableColumn fx:id="avc_col_price" prefWidth="158.39996337890625" text="Price" />
+                                          <TableColumn fx:id="avc_col_status" prefWidth="99.2000732421875" text="Status" />
+                                      </columns>
+                                    </TableView>
+                                    <TextField fx:id="avc_search" layoutX="36.0" layoutY="24.0" onKeyTyped="#searchBar" prefHeight="27.0" prefWidth="387.0" promptText="Search .." styleClass="search" stylesheets="@dashboard.css" />
+                                    <FontAwesomeIconView glyphName="SEARCH" layoutX="397.0" layoutY="44.0" size="1.5em" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="rent_form" layoutX="295.0" layoutY="67.0" prefHeight="554.4" prefWidth="890.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="7.0" layoutY="10.0" prefHeight="226.0" prefWidth="868.0" stylesheets="@dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <ComboBox fx:id="carID" layoutX="45.0" layoutY="28.0" onAction="#rentCarID" prefWidth="150.0" promptText="Car ID" styleClass="textfield" stylesheets="@dashboard.css" />
+                                    <ComboBox fx:id="Brand" layoutX="45.0" layoutY="71.0" onAction="#rentCarBrand" prefWidth="150.0" promptText="Brand" styleClass="textfield" stylesheets="@dashboard.css" />
+                                    <ComboBox fx:id="model" layoutX="45.0" layoutY="108.0" onAction="#rentCarModel" prefWidth="150.0" promptText="Model" styleClass="textfield" stylesheets="@dashboard.css" />
+                                    <ComboBox fx:id="Gender" layoutX="258.0" layoutY="107.0" prefHeight="27.0" prefWidth="152.0" promptText="Gender" styleClass="textfield" stylesheets="@dashboard.css" />
+                                    <TextField fx:id="FirstName" layoutX="260.0" layoutY="28.0" prefHeight="27.0" prefWidth="152.0" promptText="First name" styleClass="textfield" stylesheets="@dashboard.css">
+                                       <font>
+                                          <Font name="Arial Black" size="12.0" />
+                                       </font></TextField>
+                                    <TextField fx:id="LastName" layoutX="260.0" layoutY="71.0" prefHeight="27.0" prefWidth="152.0" promptText="Last name" styleClass="textfield" stylesheets="@dashboard.css">
+                                       <font>
+                                          <Font name="Arial Black" size="12.0" />
+                                       </font></TextField>
+                                    <DatePicker fx:id="date_rented" layoutX="25.0" layoutY="187.0" promptText="Date rented" />
+                                    <DatePicker fx:id="date_returned" layoutX="265.0" layoutY="187.0" onAction="#displayTotal" promptText="Date returned" />
+                                    <Button fx:id="rentButton" layoutX="667.0" layoutY="166.0" mnemonicParsing="false" onAction="#rentPay" prefHeight="47.0" prefWidth="130.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Rent" />
+                                    <Label layoutX="519.0" layoutY="31.0" prefHeight="18.0" prefWidth="74.0" text="Total:">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="totalLabel" layoutX="565.0" layoutY="31.0" prefHeight="18.0" prefWidth="74.0" text="\$0.0">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="513.0" layoutY="74.0" prefHeight="18.0" prefWidth="74.0" text="Amount:">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="amountField" layoutX="580.0" layoutY="71.0" onAction="#rentAmount" prefHeight="26.0" prefWidth="126.0" />
+                                    <Label layoutX="513.0" layoutY="111.0" prefHeight="18.0" prefWidth="74.0" text="Balance:">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="BalanceLabel" layoutX="578.0" layoutY="110.0" prefHeight="18.0" prefWidth="74.0" text="\$0.0">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="Addcustomer" layoutX="513.0" layoutY="166.0" mnemonicParsing="false" onAction="#addCustomer" prefHeight="47.0" prefWidth="130.0" styleClass="add-btn" stylesheets="@dashboard.css" text="Add Customer" />
+                                    <TextField fx:id="CIN" layoutX="258.0" layoutY="143.0" prefHeight="27.0" prefWidth="152.0" promptText="Cin" styleClass="textfield" stylesheets="@dashboard.css" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="7.0" layoutY="247.0" prefHeight="298.0" prefWidth="870.0" stylesheets="@dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TableView fx:id="rent_table_view" layoutX="11.0" layoutY="48.0" prefHeight="239.0" prefWidth="847.0">
+                                      <columns>
+                                        <TableColumn fx:id="col_carId" prefWidth="75.0" text="Car ID" />
+                                        <TableColumn fx:id="col_Brand" prefWidth="316.0000228881836" text="Brand" />
+                                          <TableColumn fx:id="col_Model" prefWidth="176.80001831054688" text="Model" />
+                                          <TableColumn fx:id="col_Price" prefWidth="109.5999755859375" text="Price" />
+                                          <TableColumn fx:id="col_Status" prefWidth="169.60009765625" text="Status" />
+                                      </columns>
+                                    </TableView>
+                                    <Label layoutX="29.0" layoutY="9.0" prefHeight="38.0" prefWidth="242.0" text="Available Cars">
+                                       <font>
+                                          <Font name="Arial Nova Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
